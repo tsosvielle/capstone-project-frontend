@@ -8,8 +8,8 @@ import SignUp from './auth/components/SignUp'
 import SignIn from './auth/components/SignIn'
 import SignOut from './auth/components/SignOut'
 import ChangePassword from './auth/components/ChangePassword'
-import Projects from './auth/components/Projects'
-import CreateProject from './auth/components/CreateProject'
+import Books from './components/Books'
+import CreateBook from './components/CreateBook'
 
 import Alert from 'react-bootstrap/Alert'
 
@@ -46,7 +46,7 @@ class App extends Component {
         ))}
         <main className="container">
           <Route exact path='/' render={() => (
-            <Projects user={user} alert={this.alert} />
+            <Books user={user} alert={this.alert} />
           )} />
           <Route path='/sign-up' render={() => (
             <SignUp alert={this.alert} setUser={this.setUser} />
@@ -55,7 +55,7 @@ class App extends Component {
             <SignIn alert={this.alert} setUser={this.setUser} />
           )} />
           <AuthenticatedRoute user={user} path='/create-book' render={() => (
-            <CreateProject alert={this.alert} user={user} />
+            <CreateBook alert={this.alert} user={user} />
           )} />
           <AuthenticatedRoute user={user} path='/sign-out' render={() => (
             <SignOut alert={this.alert} clearUser={this.clearUser} user={user} />

@@ -5,17 +5,13 @@ import Form from 'react-bootstrap/Form'
 import axios from 'axios'
 import apiUrl from '../apiConfig'
 
-class CreateProject extends Component {
+class CreateBook extends Component {
   constructor () {
     super()
 
     this.state = {
       title: '',
-      authorId: '',
-      date: '',
-      decription: '',
-      teamNeed: '',
-      contactEmail: ''
+      authorId: ''
     }
   }
 
@@ -23,40 +19,31 @@ class CreateProject extends Component {
     event.preventDefault()
 
     axios({
-      url: `${apiUrl}/projects`,
+      url: `${apiUrl}/books`,
       method: 'post',
       headers: {
         'Authorization': `Token token=${this.props.user.token}`
       },
       data: {
-        project: {
+        book: {
           title: this.state.title,
-          date: this.state.date,
-          description: this.state.description,
-          teamNeeds: this.state.teamNeeds,
-          contactEmail: this.state.contactEmail,
           author_id: this.state.authorId
         }
       }
     })
       .then(response => this.setState({
-        project: response.data.project
+        book: response.data.book
       }))
-      .then(() => this.props.alert(`${this.state.title} has been added to the project list!`, 'success'))
+      .then(() => this.props.alert(`${this.state.title} has been added to the library!`, 'success'))
       .then(() => this.props.history.push('/'))
       .catch(() => {
         this.props.alert('Whoops! Failed to add your book. Please try again.', 'danger')
         this.setState({
           title: '',
-          authorId: '',
-          data: '',
-          description: '',
-          teamNeeds: '',
-          contactEmail: ''
+          authorId: ''
         })
       })
   }
-
 
   handleChange = event => this.setState({
     [event.target.name]: event.target.value
@@ -64,33 +51,28 @@ class CreateProject extends Component {
 
   resetForm = () => this.setState({
     title: '',
-    authorId: '',
-    data: '',
-    description: '',
-    teamNeeds: '',
-    contactEmail: ''
+    authorId: ''
   })
 
   render () {
-    const { title, authorId, data, description, teamNeeds, contactEmail } = this.state
+    const { title, authorId } = this.state
 
     return (
       <Form className="form" onSubmit={this.handleSubmit}>
-        <h2>Create Project</h2>
-        <Form.Group controlId="projectTitle">
-          <Form.Label>Project Title</Form.Label>
+        <h2>Create Book</h2>
+        <Form.Group controlId="bookTitle">
+          <Form.Label>Book Title</Form.Label>
           <Form.Control
             type="text"
             value={title}
             name="title"
             required
             onChange={this.handleChange}
-            placeholder="Enter the project title"
+            placeholder="Enter the book title"
           />
-
         </Form.Group>
-        <Form.Group controlId="projectAuthor">
-          <Form.Label>Project Id</Form.Label>
+        <Form.Group controlId="bookAuthor">
+          <Form.Label>Book Id</Form.Label>
           <Form.Control
             type="number"
             value={authorId}
@@ -99,47 +81,7 @@ class CreateProject extends Component {
             placeholder="Enter the author's id"
             onChange={this.handleChange}
           />
-
         </Form.Group>
-
-        <Form className="form" onSubmit={this.handleSubmit}>
-          <h2>What's it about?</h2>
-          <Form.Group controlId="projectTitle">
-            <Form.Label>Project Description</Form.Label>
-            <Form.Control
-              type="text"
-              value={description}
-              name="description"
-              required
-              onChange={this.handleChange}
-              placeholder="Enter the project description"
-            />
-          </Form.Group>
-          <Form className="form" onSubmit={this.handleSubmit}>
-            <h2>What does your team need?</h2>
-            <Form.Group controlId="projectTeam">
-              <Form.Label>Team needs</Form.Label>
-              <Form.Control
-                type="text"
-                value={teamNeeds}
-                name="team needs"
-                onChange={this.handleChange}
-                placeholder="Enter the project's team needs"
-              />
-            </Form.Group>
-            <Form className="form" onSubmit={this.handleSubmit}>
-              <h2>How can we contact you?</h2>
-              <Form.Group controlId="projectEmail">
-                <Form.Label>Project Email</Form.Label>
-                <Form.Control
-                  type="text"
-                  value={contactEmail}
-                  name="contact email"
-                  required
-                  onChange={this.handleChange}
-                  placeholder="Enter the contact email"
-                />
-              </Form.Group>
         <Button
           variant="primary"
           type="submit"
@@ -154,10 +96,10 @@ class CreateProject extends Component {
           onClick={this.resetForm}
         >
           Reset
-          </Button>
-        </Form>
+        </Button>
+      </Form>
     )
   }
 }
 
-export default withRouter(CreateProject)
+export default withRouter(CreateBook)
