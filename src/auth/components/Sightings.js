@@ -3,6 +3,7 @@ import axios from 'axios'
 import ListGroup from 'react-bootstrap/ListGroup'
 import apiUrl from '../../apiConfig'
 import Button from 'react-bootstrap/Button'
+import { Link  } from 'react-router-dom'
 
 class Sightings extends Component {
   constructor () {
@@ -48,20 +49,23 @@ class Sightings extends Component {
         <div className="d-flex justify-content-between align-items-center py-3">
           <h3 className="m-0">All recent sightings</h3>
           {!user && <p className="m-0">Sign in to edit your sightings</p>}
-          {user && <Button variant="success" href="#create-book">Add A Sighting</Button>}
+          {user && <Button variant="success" href="#create-sighting">Add A Sighting</Button>}
         </div>
         <ListGroup>
           { user && sightings.map(sighting => (
-            <ListGroup.Item key={sighting.id}>
+            <ListGroup.Item key={sighting._id}>
               <span className="h5 d-block">{sighting.title}</span>
               <span className="d-block">{sighting.text}</span>
-              <span className="d-block">{sighting.date}</span>
+              <span className="d-block">{sighting.when}</span>
               <span className="d-block">{sighting.location}</span>
-              <Button variant="danger" onClick={() => this.handleDelete(sighting.id)}>Delete Sighting</Button>
+              <Link to={'/sightings/'+ sighting._id + '/edit'}>
+              <Button variant="change"> Update Sighting </Button>
+              </Link>
+              <Button variant="danger" onClick={() => this.handleDelete(sighting._id)}>Delete Sighting</Button>
             </ListGroup.Item>
           )) }
           { !user && sightings.map(sighting => (
-            <ListGroup.Item key={sighting.id}>
+            <ListGroup.Item key={sighting._id}>
               <span className="h5 d-block">{sighting.title}</span>
               <span>{sighting.location}</span>
             </ListGroup.Item>

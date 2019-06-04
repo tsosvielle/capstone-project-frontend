@@ -10,6 +10,7 @@ import SignOut from './auth/components/SignOut'
 import ChangePassword from './auth/components/ChangePassword'
 import Sightings from './auth/components/Sightings'
 import CreateSighting from './auth/components/CreateSighting'
+import EditSighting from './auth/components/EditSighting'
 
 import Alert from 'react-bootstrap/Alert'
 
@@ -62,6 +63,9 @@ class App extends Component {
           )} />
           <AuthenticatedRoute user={user} path='/change-password' render={() => (
             <ChangePassword alert={this.alert} user={user} />
+          )} />
+          <AuthenticatedRoute user={user} path='/sightings/:id/edit' render={() => (
+            <EditSighting alert={this.alert} user={user} />
           )} />
         </main>
       </React.Fragment>

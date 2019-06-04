@@ -12,7 +12,7 @@ class CreateSighting extends Component {
     this.state = {
       title: '',
       text: '',
-      date: '',
+      when: '',
       location: ''
     }
   }
@@ -30,7 +30,7 @@ class CreateSighting extends Component {
         sighting: {
           title: this.state.title,
           text: this.state.text,
-          date: this.state.date,
+          when: this.state.when,
           location: this.state.location
         }
       }
@@ -45,7 +45,7 @@ class CreateSighting extends Component {
         this.setState({
           title: '',
           text: '',
-          date: '',
+          when: '',
           location: ''
         })
       })
@@ -58,25 +58,25 @@ class CreateSighting extends Component {
   resetForm = () => this.setState({
     title: '',
     text: '',
-    date: '',
+    when: '',
     location: ''
   })
 
   render () {
-    const { title, text, date, location } = this.state
+    const { title, text, when, location } = this.state
 
     return (
       <Form className="form" onSubmit={this.handleSubmit}>
         <h2>Create Sighting</h2>
         <Form.Group controlId="sightingTitle">
-          <Form.Label>Book Title</Form.Label>
+          <Form.Label>Sighting Title</Form.Label>
           <Form.Control
             type="text"
             value={title}
             name="title"
             required
             onChange={this.handleChange}
-            placeholder="Enter the book title"
+            placeholder="Enter the sighting title"
           />
         </Form.Group>
 
@@ -96,8 +96,8 @@ class CreateSighting extends Component {
             <Form.Label>Sighting Date</Form.Label>
             <Form.Control
               type="text"
-              value={date}
-              name="sightingDate"
+              value={when}
+              name="when"
               required
               placeholder="Enter the sighting date"
               onChange={this.handleChange}
