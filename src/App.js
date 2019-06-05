@@ -45,7 +45,7 @@ class App extends Component {
             </Alert.Heading>
           </Alert>
         ))}
-        <main className="container">
+        <main className="container fullWidth">
           <Route exact path='/' render={() => (
             <Sightings user={user} alert={this.alert} />
           )} />

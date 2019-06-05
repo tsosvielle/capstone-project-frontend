@@ -6,6 +6,7 @@ $charcoal: #bbb;
   display: flex;
   height: 100px;
   padding: 0 20px;
+  background-color: rgba(0,0,0,0.1);
 
   a,
   span {
@@ -33,6 +34,7 @@ $charcoal: #bbb;
     }
   }
 }
+
 
 @media (max-width: 450px) {
   .main-header > nav {

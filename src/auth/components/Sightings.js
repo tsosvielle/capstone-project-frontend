@@ -46,17 +46,15 @@ class Sightings extends Component {
 
     return (
       <Fragment>
-      <div id="hero">
-      <div id="hero-overlay">
-        <div className="d-flex justify-content-between align-items-center py-3">
-          <h3 className="m-0">All recent sightings</h3>
-          {!user && <p className="m-0">Sign in to edit your sightings</p>}
+        <div className="d-flex fullWidth justify-content-between align-items-center py-3">
+          <h3 className="m-0 sightingsTextHeader">All recent sightings</h3>
+          {!user && <p className="m-0 sightingsTextHeader">Sign in to edit your sightings</p>}
           {user && <Button variant="success" href="#create-sighting">Add A Sighting</Button>}
         </div>
         <ListGroup>
           { user && sightings.map(sighting => (
-            <ListGroup.Item key={sighting._id}>
             <div className="listingHolder">
+            <ListGroup.Item key={sighting._id}>
               <span className="h5 d-block">{sighting.title}</span>
               <span className="d-block">{sighting.text}</span>
               <span className="d-block">{sighting.when}</span>
@@ -65,20 +63,18 @@ class Sightings extends Component {
               <Button variant="success" className="updateButton"> Update Sighting </Button>
               </Link>
               <Button variant="danger" onClick={() => this.handleDelete(sighting._id)}>Delete Sighting</Button>
-              </div>
             </ListGroup.Item>
+            </div>
           )) }
           { !user && sightings.map(sighting => (
+              <div className="listingHolder">
             <ListGroup.Item key={sighting._id}>
-            <div className="listingHolder">
               <span className="h5 d-block">{sighting.title}</span>
               <span>{sighting.location}</span>
-              </div>
             </ListGroup.Item>
+            </div>
           ))}
         </ListGroup>
-        </div>
-        </div>
       </Fragment>
     )
   }
