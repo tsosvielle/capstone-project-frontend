@@ -22,7 +22,7 @@ class EditSighting extends Component {
 
   async componentDidMount () {
     const response = await
-    axios(`${apiUrl}/sightings/${this.props.match.params._id}`)
+    axios(`${apiUrl}/sightings/${this.props.match.params.id}`)
     this.setState({ sighting: response.data.sighting })
   }
 
@@ -38,7 +38,7 @@ class EditSighting extends Component {
     event.preventDefault()
 
     await axios({
-      url: `${apiUrl}/sightings/${this.props.match.params._id}`,
+      url: `${apiUrl}/sightings/${this.props.match.params.id}`,
       method: 'PATCH',
       data: {
         sighting: this.state.sighting
@@ -52,7 +52,7 @@ class EditSighting extends Component {
     const { handleChange, handleSubmit } = this
 
     if (updated) {
-      return <Redirect to={`/sightings/${this.props.match.params._id}`} />
+      return <Redirect to={`/sightings/${this.props.match.params.id}`} />
     }
 
     return (
