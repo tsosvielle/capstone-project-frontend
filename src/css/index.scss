@@ -4,6 +4,29 @@ body {
   padding: 0;
 }
 
+#hero {
+  background-image: url('https://images.pexels.com/photos/807598/pexels-photo-807598.jpeg');
+  background-size: cover;
+  background-position: center center;
+  position: relative;
+  top: 0;
+  bottom: 0;
+  height: 100vh;
+  z-index: -10;
+}
+
 .alert {
   margin: 30px;
+}
+
+.listingHolder {
+  border: 20px;
+}
+
+.mainTheme {
+
+}
+
+.updateButton {
+   background-color: #4CAF50;
 }

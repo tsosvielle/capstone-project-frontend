@@ -40,6 +40,9 @@ class EditSighting extends Component {
     await axios({
       url: `${apiUrl}/sightings/${this.props.match.params.id}`,
       method: 'PATCH',
+      headers: {
+        'Authorization': `Token token=${this.props.user.token}`
+      },
       data: {
         sighting: this.state.sighting
       }
@@ -52,7 +55,7 @@ class EditSighting extends Component {
     const { handleChange, handleSubmit } = this
 
     if (updated) {
-      return <Redirect to={`/sightings/${this.props.match.params.id}`} />
+      return <Redirect to={`/`} />
     }
 
     return (
