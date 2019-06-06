@@ -4,6 +4,7 @@ import Button from 'react-bootstrap/Button'
 import Form from 'react-bootstrap/Form'
 import axios from 'axios'
 import apiUrl from '../../apiConfig'
+import messages from '../messages'
 
 class CreateSighting extends Component {
   constructor () {

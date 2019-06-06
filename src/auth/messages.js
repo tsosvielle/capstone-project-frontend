@@ -8,5 +8,11 @@ export default {
   signOutSuccess: 'Come back soon!',
   changePasswordSuccess: 'Password changed successfully!',
   changePasswordFailure: 'Failed to change passwords. Check your old password' +
-                         ' and try again.'
+                         ' and try again.',
+  sightingsLoadSuccess: 'Lucky you, here are the most recent sightings!',
+  sightingsLoadFailure: 'Something went wrong :(',
+  deleteSuccess: 'Successfully deleted, guess it was a false alarm',
+  deleteFailure: 'Something went wrong, guess that sightings sticking around',
+  updateSuccess: 'Nice job, you totally changed it!',
+  updateFailure: 'Booooo something went wrong'
 }

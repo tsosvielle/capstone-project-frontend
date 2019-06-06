@@ -4,6 +4,7 @@ import ListGroup from 'react-bootstrap/ListGroup'
 import apiUrl from '../../apiConfig'
 import Button from 'react-bootstrap/Button'
 import { Link  } from 'react-router-dom'
+import messages from '../messages'
 
 class Sightings extends Component {
   constructor () {
@@ -19,8 +20,10 @@ class Sightings extends Component {
     axios(`${apiUrl}/sightings`)
       .then(res => {
         this.setState({ sightings: res.data.sightings })
+        alert(messages.sightingsLoadSuccess, 'success')
       })
       .catch(console.error)
+      alert(messages.sightingsLoadFailure, 'failure')
   }
 
  handleDelete = (id) => {
@@ -35,8 +38,10 @@ class Sightings extends Component {
         axios(`${apiUrl}/sightings`)
           .then(res => {
             this.setState({ sightings: res.data.sightings })
+            alert(messages.deleteSuccess, 'success')
           })
           .catch(console.error)
+          alert(messages.deleteFailure, 'danger')
       })
   }
 

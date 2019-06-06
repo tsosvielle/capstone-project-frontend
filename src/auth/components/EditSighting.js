@@ -4,6 +4,7 @@ import { withRouter } from 'react-router-dom'
 import axios from 'axios'
 import apiUrl from '../../apiConfig'
 import SightingForm from '../shared/SightingForm'
+import messages from '../messages'
 
 class EditSighting extends Component {
   constructor (props) {
@@ -44,6 +45,7 @@ class EditSighting extends Component {
 
   handleSubmit = async event => {
     event.preventDefault()
+    .catch(() => alert(messages.updateFailure, 'danger'))
 
     await axios({
       url: `${apiUrl}/sightings/${this.props.match.params.id}`,
@@ -58,11 +60,13 @@ class EditSighting extends Component {
     this.setState({ updated: true })
   }
 
+
   render () {
     const { sighting, updated } = this.state
     const { handleChange, handleSubmit } = this
 
     if (updated) {
+      alert(messages.updateSuccess, 'success')
       return <Redirect to={`/`} />
     }
 
