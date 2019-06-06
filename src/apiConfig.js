@@ -1,7 +1,7 @@
 let apiUrl
 const apiUrls = {
   production: 'https://conservator.herokuapp.com',
-  development: 'http://localhost:4741'
+  development: 'https://conservator.herokuapp.com'
 }
 
 if (window.location.hostname === 'localhost') {

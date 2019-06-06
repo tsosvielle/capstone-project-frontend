@@ -20,7 +20,7 @@ class Sightings extends Component {
     axios(`${apiUrl}/sightings`)
       .then(res => {
         this.setState({ sightings: res.data.sightings })
-        alert(messages.sightingsLoadSuccess, 'success')
+        this.props.alert(messages.sightingsLoadSuccess, 'success')
       })
       .catch(console.error)
       this.props.alert(messages.sightingsLoadFailure, 'failure')

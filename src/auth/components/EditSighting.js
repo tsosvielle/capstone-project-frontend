@@ -45,7 +45,7 @@ class EditSighting extends Component {
 
   handleSubmit = async event => {
     event.preventDefault()
-    .catch(() => alert(messages.updateFailure, 'danger'))
+    .catch(() => this.props.alert(messages.updateFailure, 'danger'))
 
     await axios({
       url: `${apiUrl}/sightings/${this.props.match.params.id}`,
@@ -66,7 +66,7 @@ class EditSighting extends Component {
     const { handleChange, handleSubmit } = this
 
     if (updated) {
-      alert(messages.updateSuccess, 'success')
+      this.props.alert(messages.updateSuccess, 'success')
       return <Redirect to={`/`} />
     }
 
