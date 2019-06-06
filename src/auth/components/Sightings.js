@@ -22,8 +22,8 @@ class Sightings extends Component {
         this.setState({ sightings: res.data.sightings })
         this.props.alert(messages.sightingsLoadSuccess, 'success')
       })
-      .catch(console.error)
-      this.props.alert(messages.sightingsLoadFailure, 'failure')
+      .catch(() => this.props.alert(messages.sightingsLoadFailure, 'danger'))
+
   }
 
  handleDelete = (id) => {
