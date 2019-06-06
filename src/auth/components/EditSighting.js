@@ -46,7 +46,7 @@ class EditSighting extends Component {
   handleSubmit = async event => {
     event.preventDefault()
     .catch(() => this.props.alert(messages.updateFailure, 'danger'))
-
+    
     await axios({
       url: `${apiUrl}/sightings/${this.props.match.params.id}`,
       method: 'PATCH',

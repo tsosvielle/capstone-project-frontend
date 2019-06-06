@@ -40,7 +40,7 @@ class Sightings extends Component {
             this.setState({ sightings: res.data.sightings })
             this.props.alert(messages.deleteSuccess, 'success')
           })
-          .catch(console.error)
+          // .catch(console.error)
           this.props.alert(messages.deleteFailure, 'danger')
       })
   }
@@ -54,7 +54,7 @@ class Sightings extends Component {
         <div className="d-flex fullWidth justify-content-between align-items-center py-3">
           <h3 className="m-0 sightingsTextHeader">All recent sightings</h3>
           {!user && <p className="m-0 sightingsTextHeader">Sign in to edit your sightings</p>}
-          {user && <Button variant="success" href="#create-sighting">Add A Sighting</Button>}
+          {user && <Button className="rounded-0" variant="success" href="#create-sighting">Add A Sighting</Button>}
         </div>
         <ListGroup>
           { user && sightings.map(sighting => (
@@ -65,9 +65,9 @@ class Sightings extends Component {
               <span className="d-block">{sighting.when}</span>
               <span className="d-block">{sighting.location}</span>
               <Link to={'/sightings/'+ sighting._id + '/edit'}>
-              <Button variant="success" className="updateButton"> Update Sighting </Button>
+              <Button variant="success" className="updateButton btn-space rounded-0"> Update Sighting </Button>
               </Link>
-              <Button variant="danger" onClick={() => this.handleDelete(sighting._id)}>Delete Sighting</Button>
+              <Button variant="danger" className="deleteButton btn-space rounded-0" onClick={() => this.handleDelete(sighting._id)}>Delete Sighting</Button>
             </ListGroup.Item>
             </div>
           )) }
