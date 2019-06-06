@@ -23,7 +23,7 @@ class Sightings extends Component {
         alert(messages.sightingsLoadSuccess, 'success')
       })
       .catch(console.error)
-      alert(messages.sightingsLoadFailure, 'failure')
+      this.props.alert(messages.sightingsLoadFailure, 'failure')
   }
 
  handleDelete = (id) => {
@@ -38,10 +38,10 @@ class Sightings extends Component {
         axios(`${apiUrl}/sightings`)
           .then(res => {
             this.setState({ sightings: res.data.sightings })
-            alert(messages.deleteSuccess, 'success')
+            this.props.alert(messages.deleteSuccess, 'success')
           })
           .catch(console.error)
-          alert(messages.deleteFailure, 'danger')
+          this.props.alert(messages.deleteFailure, 'danger')
       })
   }
 
