@@ -20,11 +20,19 @@ class EditSighting extends Component {
     }
   }
 
-  async componentDidMount () {
-    const response = await
-    axios(`${apiUrl}/sightings/${this.props.match.params.id}`)
-    this.setState({ sighting: response.data.sighting })
-  }
+  // async componentDidMount () {
+  //   const response = await
+  //   axios(`${apiUrl}/sightings/${this.props.match.params.id}`)
+  //   this.setState({ sighting: response.data.sighting })
+  // }
+
+  // componentDidMount(){
+  //   axios(`${apiUrl}/sightings/${this.props.match.params.id}`)
+  //   .then(console.log)
+  //
+  // }
+
+
 
   handleChange = event => {
     const updatedField = { [event.target.name]: event.target.value }

@@ -3,29 +3,33 @@ import { Link } from 'react-router-dom'
 
 const SightingForm = ({ sighting, handleSubmit, handleChange, cancelPath }) => (
   <form onSubmit={handleSubmit}>
-    <label>Name</label>
+    <label className="label">Name</label>
     <input
+      className="h5 d-block"
       name="title"
       placeholder="title"
       value={sighting.title}
       onChange={handleChange}
     />
-    <label>Description</label>
+    <label className="label">Description</label>
     <input
+      className="d-block"
       name="text"
       placeholder="description"
       value={sighting.text}
       onChange={handleChange}
     />
-    <label>Date </label>
+    <label className="label">Date </label>
     <input
+      className="d-block"
       name="when"
       placeholder="YYYY-MM-DD"
       value={sighting.when}
       onChange={handleChange}
     />
-    <label>Location</label>
+    <label className="label">Location</label>
     <input
+      className="d-block"
       name="location"
       placeholder="location"
       value={sighting.location}

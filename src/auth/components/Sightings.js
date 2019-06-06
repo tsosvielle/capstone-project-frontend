@@ -53,7 +53,7 @@ class Sightings extends Component {
         </div>
         <ListGroup>
           { user && sightings.map(sighting => (
-            <div className="listingHolder">
+            <div className="listingHolder" key={sighting._id}>
             <ListGroup.Item key={sighting._id}>
               <span className="h5 d-block">{sighting.title}</span>
               <span className="d-block">{sighting.text}</span>
@@ -67,7 +67,7 @@ class Sightings extends Component {
             </div>
           )) }
           { !user && sightings.map(sighting => (
-              <div className="listingHolder">
+              <div className="listingHolder" key={sighting._id}>
             <ListGroup.Item key={sighting._id}>
               <span className="h5 d-block">{sighting.title}</span>
               <span>{sighting.location}</span>
