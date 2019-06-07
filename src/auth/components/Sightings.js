@@ -40,10 +40,9 @@ class Sightings extends Component {
             this.setState({ sightings: res.data.sightings })
             this.props.alert(messages.deleteSuccess, 'success')
           })
-          // .catch(console.error)
-          this.props.alert(messages.deleteFailure, 'danger')
-      })
-  }
+          .catch(() => this.props.alert(messages.deleteFailure, 'danger'))
+  })
+}
 
   render () {
     const { user } = this.props

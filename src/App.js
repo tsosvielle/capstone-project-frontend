@@ -11,6 +11,7 @@ import ChangePassword from './auth/components/ChangePassword'
 import Sightings from './auth/components/Sightings'
 import CreateSighting from './auth/components/CreateSighting'
 import EditSighting from './auth/components/EditSighting'
+import AutoDismissAlert from './auth/components/AutoDismissAlert'
 
 import Alert from 'react-bootstrap/Alert'
 
@@ -39,11 +40,11 @@ class App extends Component {
       <React.Fragment>
         <Header user={user} />
         {alerts.map((alert, index) => (
-          <Alert key={index} dismissible variant={alert.type}>
-            <Alert.Heading>
-              {alert.message}
-            </Alert.Heading>
-          </Alert>
+         <AutoDismissAlert
+           key={index}
+           alert={alert}
+         />
+       ))}
         ))}
         <main className="container fullWidth">
           <Route exact path='/' render={() => (
