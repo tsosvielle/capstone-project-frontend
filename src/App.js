@@ -13,7 +13,7 @@ import CreateSighting from './auth/components/CreateSighting'
 import EditSighting from './auth/components/EditSighting'
 import AutoDismissAlert from './auth/components/AutoDismissAlert'
 
-import Alert from 'react-bootstrap/Alert'
+// import Alert from 'react-bootstrap/Alert'
 
 class App extends Component {
   constructor () {
@@ -45,7 +45,6 @@ class App extends Component {
            alert={alert}
          />
        ))}
-        ))}
         <main className="container fullWidth">
           <Route exact path='/' render={() => (
             <Sightings user={user} alert={this.alert} />
