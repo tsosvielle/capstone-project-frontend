@@ -47,7 +47,7 @@ class Sightings extends Component {
   render () {
     const { user } = this.props
     const { sightings } = this.state
-
+    
     return (
       <Fragment>
         <div className="d-flex fullWidth justify-content-between align-items-center py-3">
@@ -63,13 +63,17 @@ class Sightings extends Component {
               <span className="d-block">{sighting.text}</span>
               <span className="d-block">{sighting.when}</span>
               <span className="d-block">{sighting.location}</span>
+
+              { user && sighting.owner._id === user._id &&
               <Link to={'/sightings/'+ sighting._id + '/edit'}>
               <Button variant="success" className="updateButton btn-space rounded-0"> Update Sighting </Button>
-              </Link>
-              <Button variant="danger" className="deleteButton btn-space rounded-0" onClick={() => this.handleDelete(sighting._id)}>Delete Sighting</Button>
+              </Link>}
+              { user && sighting.owner._id === user._id &&
+              <Button variant="danger" className="deleteButton btn-space rounded-0" onClick={() => this.handleDelete(sighting._id)}>Delete Sighting</Button>}
+
             </ListGroup.Item>
             </div>
-          )) }
+          ))}
           { !user && sightings.map(sighting => (
               <div className="listingHolder" key={sighting._id}>
             <ListGroup.Item key={sighting._id}>

@@ -57,7 +57,13 @@ class EditSighting extends Component {
         sighting: this.state.sighting
       }
     })
-    this.setState({ updated: true })
+    .then( response => {
+      this.props.history.push('/')
+      this.setState({ updated: true })
+      alert('You updated ' + response.data.sighting.title, 'success')
+
+      },  error => alert('Something went wrong!', 'danger'))
+
   }
 
 

@@ -35,7 +35,7 @@ class App extends Component {
 
   render () {
     const { alerts, user } = this.state
-
+    console.log(`appjs `, user)
     return (
       <React.Fragment>
         <Header user={user} />
