@@ -11,6 +11,9 @@ dissemenation.
 
 [Heroku](https://thawing-brook-10724.herokuapp.com/)
 
+## Screenshot
+[ScreenShot](https://imgur.com/1dOvT6h)
+
 ## Project planning:
 The project had a limited time frame and as such upfront planning was needed to
 scope what could and couldn't be carried over from the initial vision to version
@@ -60,7 +63,7 @@ Upon forking cloning, and downloading both the front and back end of the App
 
 ## Wireframe
 
-[wireframe]()
+[wireframe]('https://imgur.com/ox3bTWO')
 
 ### Technologies Used:
 - html
