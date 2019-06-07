@@ -12,7 +12,7 @@ dissemenation.
 [Heroku](https://thawing-brook-10724.herokuapp.com/)
 
 ## Screenshot
-[ScreenShot](https://imgur.com/1dOvT6h)
+[Screenshot](https://i.imgur.com/1dOvT6h.jpg)
 
 ## Project planning:
 The project had a limited time frame and as such upfront planning was needed to
