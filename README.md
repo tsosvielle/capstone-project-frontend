@@ -63,7 +63,7 @@ Upon forking cloning, and downloading both the front and back end of the App
 
 ## Wireframe
 
-[wireframe]('https://imgur.com/ox3bTWO')
+[wireframe](https://imgur.com/ox3bTWO)
 
 ### Technologies Used:
 - html
