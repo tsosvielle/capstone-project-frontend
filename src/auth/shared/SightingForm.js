@@ -35,10 +35,12 @@ const SightingForm = ({ sighting, handleSubmit, handleChange, cancelPath }) => (
       value={sighting.location}
       onChange={handleChange}
     />
-    <button type="submit">Submit</button>
+    <div className="form-buttons">
+    <button className="form-submit-button" type="submit">Submit</button>
     <Link to={cancelPath}>
       <button>Cancel</button>
     </Link>
+    </div>
   </form>
 )
 

@@ -60,10 +60,8 @@ class EditSighting extends Component {
     .then( response => {
       this.props.history.push('/')
       this.setState({ updated: true })
-      alert('You updated ' + response.data.sighting.title, 'success')
-
-      },  error => alert('Something went wrong!', 'danger'))
-
+      this.props.alert(messages.updateSuccess, 'success')
+      })
   }
 
 
@@ -77,12 +75,14 @@ class EditSighting extends Component {
     }
 
     return (
+        <div className="edit-wrapper">
         <SightingForm
           sighting={sighting}
           handleChange={handleChange}
           handleSubmit={handleSubmit}
           cancelPath={`/`}
         />
+        </div>
 
     )
   }

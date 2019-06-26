@@ -4,22 +4,23 @@ import Nav from 'react-bootstrap/Nav'
 
 const authenticatedOptions = (
   <React.Fragment>
-    <Nav.Link href="#change-password">Change Password</Nav.Link>
-    <Nav.Link href="#sign-out">Sign Out</Nav.Link>
+    <Nav.Link className="option" href="#change-password">Change Password</Nav.Link>
+    <Nav.Link className="option" href="#sign-out">Sign Out</Nav.Link>
   </React.Fragment>
 )
 
 const unauthenticatedOptions = (
   <React.Fragment>
-    <Nav.Link href="#sign-up">Sign Up</Nav.Link>
-    <Nav.Link href="#sign-in">Sign In</Nav.Link>
+    <Nav.Link className="option" href="#sign-up">Sign Up</Nav.Link>
+    <Nav.Link className="option" href="#sign-in">Sign In</Nav.Link>
   </React.Fragment>
 )
 
 const Header = ({ user }) => (
   <header className="main-header">
     <Navbar collapseOnSelect bg="primary" expand="md" variant="dark">
-      <Navbar.Brand href="#">Conservator</Navbar.Brand>
+      <Navbar.Brand href="#">HOME</Navbar.Brand>
+      <Nav className="conservator-title">Conservator</Nav>
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="ml-auto">

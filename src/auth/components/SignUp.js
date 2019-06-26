@@ -4,6 +4,7 @@ import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
 import { signUp, signIn } from '../api'
 import messages from '../messages'
+import apiConfig from '../../apiConfig'
 
 class SignUp extends Component {
   constructor () {
@@ -32,6 +33,8 @@ class SignUp extends Component {
       .then(() => history.push('/'))
       .catch(error => {
         console.error(error)
+        console.log(signUp)
+        console.log(apiConfig.apiUrl)
         this.setState({ email: '', password: '', passwordConfirmation: '' })
         alert(messages.signUpFailure, 'danger')
       })
@@ -76,7 +79,7 @@ class SignUp extends Component {
             onChange={this.handleChange}
           />
         </Form.Group>
-        <Button type="submit">Sign In</Button>
+        <Button type="submit">Sign Up</Button>
       </Form>
     )
   }
